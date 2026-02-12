@@ -1,0 +1,162 @@
+:root {
+  --bg: #f5f3ef;
+  --panel-bg: #fffdf8;
+  --card-bg: #fefaf1;
+  --ink: #1e1e1e;
+  --muted: #5b5b5b;
+  --accent: #006d77;
+  --accent-strong: #004f56;
+  --line: #d4c8b5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 15%, rgba(0, 109, 119, 0.1), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(238, 155, 0, 0.12), transparent 35%),
+    var(--bg);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  min-height: 100vh;
+}
+
+.panel {
+  padding: 16px;
+  border-right: 1px solid var(--line);
+  background: var(--panel-bg);
+  overflow-y: auto;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.6rem;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid #c2b29c;
+  border-radius: 8px;
+  padding: 8px;
+  background: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+.hint {
+  color: var(--muted);
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+}
+
+.canvasWrap {
+  padding: 16px;
+  overflow: auto;
+}
+
+#plannerCanvas {
+  display: block;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+#furnitureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#furnitureList li {
+  border: 1px solid #c8bca8;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+#furnitureList .itemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+#furnitureList .itemMeta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+#furnitureList .smallBtn {
+  background: #a63d40;
+  margin: 0;
+  padding: 5px 8px;
+  font-size: 0.85rem;
+}
+
+#furnitureList .smallBtn:hover {
+  background: #892e32;
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+}

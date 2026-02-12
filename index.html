@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room Layout Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <aside class="panel">
+        <h1>Room Layout Planner</h1>
+
+        <section class="card">
+          <h2>1) Upload Floorplan</h2>
+          <input type="file" id="floorplanInput" accept="image/*" />
+          <button id="clearFloorplanBtn" type="button">Clear Floorplan</button>
+        </section>
+
+        <section class="card">
+          <h2>2) Set Scale</h2>
+          <p class="hint">
+            Click “Start Scale Line”, then click two points on the image.
+          </p>
+          <div class="row">
+            <button id="startScaleBtn" type="button">Start Scale Line</button>
+            <button id="cancelScaleBtn" type="button">Cancel</button>
+          </div>
+          <div class="row">
+            <label for="scaleLengthInput">Real Length</label>
+            <input id="scaleLengthInput" type="number" min="0.01" step="0.01" />
+          </div>
+          <div class="row">
+            <label for="scaleUnitSelect">Unit</label>
+            <select id="scaleUnitSelect">
+              <option value="m">meters</option>
+              <option value="cm">centimeters</option>
+              <option value="ft">feet</option>
+              <option value="in">inches</option>
+            </select>
+          </div>
+          <button id="applyScaleBtn" type="button">Apply Scale</button>
+          <p id="scaleStatus" class="hint">Scale not set.</p>
+        </section>
+
+        <section class="card">
+          <h2>3) Add Furniture</h2>
+          <div class="row">
+            <label for="furnitureName">Name</label>
+            <input id="furnitureName" type="text" placeholder="Desk" />
+          </div>
+          <div class="row">
+            <label for="furnitureWidth">Width</label>
+            <input id="furnitureWidth" type="number" min="0.01" step="0.01" />
+          </div>
+          <div class="row">
+            <label for="furnitureDepth">Depth</label>
+            <input id="furnitureDepth" type="number" min="0.01" step="0.01" />
+          </div>
+          <div class="row">
+            <label for="furnitureUnit">Unit</label>
+            <select id="furnitureUnit">
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+              <option value="in">in</option>
+              <option value="ft">ft</option>
+            </select>
+          </div>
+          <button id="addFurnitureBtn" type="button">Add Furniture</button>
+        </section>
+
+        <section class="card">
+          <h2>Furniture List</h2>
+          <ul id="furnitureList"></ul>
+          <p class="hint">
+            Drag on canvas to move. Use rotation handle to rotate selected item.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Export / Import</h2>
+          <button id="exportBtn" type="button">Export Layout JSON</button>
+          <input type="file" id="importInput" accept="application/json" />
+          <p class="hint">Importing replaces the current canvas layout.</p>
+        </section>
+      </aside>
+
+      <section class="canvasWrap">
+        <canvas id="plannerCanvas" width="1200" height="800"></canvas>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
